@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">easyMC</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_login">login</string>
+    <string name="app_signup">signup</string>
+    <string name="app_skip">skip</string>
+    <string name="app_username">username</string>
+    <string name="app_phone">phone</string>
+    <string name="app_email">email</string>
+    <string name="app_password">password</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bin.easymobilecare">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- android:name="com.hem.nestedrecyclerview.common.nestedrecycler" -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lunchericon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+       <!-- <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6aa69463f62610b7e01f97622f4c61df319e2ea6" />-->
+        <activity
+            android:name="com.bin.easymobilecare.ui.activity.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.bin.easymobilecare.ui.activity.BrandActivity" />
+        <activity android:name="com.bin.easymobilecare.ui.activity.LoginActivity" />
+        <activity android:name="com.bin.easymobilecare.ui.activity.HomeActivity" />
+    </application>
+
+</manifest>

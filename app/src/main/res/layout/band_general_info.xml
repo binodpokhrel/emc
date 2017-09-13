@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/generalInfoLinearLayout"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginLeft"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_marginRight="@dimen/marginLeft">
+    <TextView
+        android:id="@+id/generalDetailsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="RAM :1GB\nScreenSize(in cm): 11.43 cm(4.5)\nRear Camera:2MP\nFront Camera:2Mp\nInternal Memory:8GB\nBattery Capacity(in mAH):1800mAh\nProcessor Cores:Quad"/>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/insertUserNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="userName"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <EditText
+                android:id="@+id/insertEmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="@string/app_email"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <EditText
+                android:id="@+id/insertPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="password"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <EditText
+                android:id="@+id/insertPhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="@string/app_phone"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <Button
+                android:id="@+id/registerBtn"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/cardview_light_background"
+                android:text="@string/app_signup"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/backToLoginBtn"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/cardview_light_background"
+                android:text="@string/app_login"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

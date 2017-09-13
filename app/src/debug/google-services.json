@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "818542144083",
+    "project_id": "nestedrecyclerview-debug"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818542144083:android:21019508af29ef57",
+        "android_client_info": {
+          "package_name": "com.hem.nestedrecyclerview.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818542144083-6dkcm7at3sfd2026tmc92rl8ol7dnvg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hem.nestedrecyclerview.debug",
+            "certificate_hash": "ac76c2e0aa1556da882969233f158d6789f1d916"
+          }
+        },
+        {
+          "client_id": "818542144083-qdpsqe9k1h5g3j75vak1i6rn3bs1q7so.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNPeBcAhfiFC2hYYagXOkQgWTPJV1VvEU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-90905942-5"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

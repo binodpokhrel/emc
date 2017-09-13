@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "162663667989",
+    "project_id": "firebase-sipradi"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162663667989:android:61e63ca8477a8340",
+        "android_client_info": {
+          "package_name": "com.hem.nestedrecyclerview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162663667989-r5kllf6p8pip1lg6cfgsuftokl1fsdc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hem.nestedrecyclerview",
+            "certificate_hash": "ac76c2e0aa1556da882969233f158d6789f1d916"
+          }
+        },
+        {
+          "client_id": "162663667989-kunc037u23fs1mv6a8uk9nn62q86e7ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqgwacXWJboY6RghIu5y5p3gFRsyUh4u8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-90905942-4"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

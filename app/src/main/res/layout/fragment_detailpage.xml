@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/topViewCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/detailBrandImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/mobdemo"
+                    android:transitionName="thumbnail_view" />
+
+                <TextView
+                    android:id="@+id/detailBrandItemNameTextView"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="@dimen/marginLeft"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:text="Micromax spark Vdeo( 8GB ) 4G VoLTE"
+                    android:textColor="@color/lightBlack" />
+
+                <TextView
+                    android:id="@+id/detailBrandItemPriceTextView"
+                    style="@style/Base.TextAppearance.AppCompat.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginBotton"
+                    android:layout_marginLeft="@dimen/marginLeft"
+                    android:text="Rs. 4,4999"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/itemDetailsCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topViewCardView"
+            android:layout_margin="@dimen/margin"
+            android:layout_marginTop="@dimen/marginTop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginTop"
+                    android:layout_marginLeft="@dimen/marginLeft"
+                    android:layout_marginTop="@dimen/marginBotton"
+                    android:text="Item Details"
+                    android:textColor="@color/lightBlack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="0.90">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginTop"
+                        android:layout_weight="0.30"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/iconWidth"
+                            android:layout_height="@dimen/iconHeight"
+                            android:src="@drawable/ram" />
+
+                        <TextView
+                            android:id="@+id/detailBrandRamTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginTop"
+                            android:gravity="center_horizontal"
+                            android:text="Ram \n1 GB" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginTop"
+                        android:layout_weight="0.30"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/iconWidth"
+                            android:layout_height="@dimen/iconHeight"
+                            android:src="@drawable/camera" />
+
+                        <TextView
+                            android:id="@+id/detailBrandCameraTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginTop"
+                            android:gravity="center_horizontal"
+                            android:text="Rear Camera  \n 5 MP" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginTop"
+                        android:layout_weight="0.30"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/iconWidth"
+                            android:layout_height="@dimen/iconHeight"
+                            android:src="@drawable/talktime" />
+
+                        <TextView
+                            android:id="@+id/detailBrandTalkTimeTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginTop"
+                            android:gravity="center_horizontal"
+                            android:text="Talk Time \nUpto 5hrs" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/marginTop"
+                    android:layout_marginLeft="@dimen/marginLeft">
+
+                    <TextView
+                        android:id="@+id/itemDetailInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" Front Camera: 2 MP \n Standby Time: Upto 150hrs \n FM : Yes \n SIMs: Dual" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemDetailsCardView"
+            android:layout_marginTop="@dimen/marginBotton">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/generalInfoTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="General Info"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/generalInfoImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="1" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/generalId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Hardware and Software"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/harwareAndSoftwareImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="2" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/hSoftwareId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Display"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/displayImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="3" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/displayId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Multimedia"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/multimediaImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="4" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/multimediaId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Camera"
+                        android:textColor="@color/lightBlack" />
+
+
+                    <ImageView
+                        android:id="@+id/cameraImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="5" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/cameraId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Connectivity and Data Rate"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/connectivityImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="6" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/connectivityId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="UserMemory"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/userMemoryImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="7" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/memoryId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Battery"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/batteryImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="8" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/batteryId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/textHeight"
+                        android:layout_marginLeft="@dimen/marginLeft"
+                        android:layout_weight="0.80"
+                        android:gravity="center_vertical"
+                        android:text="Important Apps"
+                        android:textColor="@color/lightBlack" />
+
+                    <ImageView
+                        android:id="@+id/importantAppImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.20"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_down"
+                        android:tag="9" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/importantAppsId"
+                    layout="@layout/band_general_info"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bin.easymobilecare.ui.fragment.FragmentLogin">
+
+    <TextView
+        android:id="@+id/loginSkipTextView"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:text="skip"
+        android:textAllCaps="true"
+        android:textColor="@color/cardview_dark_background" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/insertUserNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="userName"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="25dp"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <EditText
+                android:id="@+id/insertPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:paddingLeft="25dp"
+                android:textColorHint="@color/cardview_light_background" />
+
+            <Button
+                android:id="@+id/loginBtn"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/cardview_light_background"
+                android:text="login"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/signupBtn"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/cardview_light_background"
+                android:text="@string/app_signup"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
