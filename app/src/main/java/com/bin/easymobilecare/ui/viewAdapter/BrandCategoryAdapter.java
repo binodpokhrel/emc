@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import java.util.List;
 public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryViewHolder> implements OnItemClickListner {
     private Activity context;
     private List<BrandCategoryViewModel> brandViewModels;
+    int parentPosition;
 
     public BrandCategoryAdapter(Activity context, List<BrandCategoryViewModel> brandCategoryViewModels) {
         this.context = context;
@@ -39,8 +41,12 @@ public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryView
     }
 
     @Override
-    public void onBindViewHolder(BrandCategoryViewHolder holder, final int position) {
+    public void onBindViewHolder(BrandCategoryViewHolder holder, int position) {
         final BrandCategoryViewModel categoryViewModel = brandViewModels.get(position);
+
+        parentPosition = position;
+        Log.e("OnBindParentPosition==",position+"");
+
         holder.headerTextView.setText(categoryViewModel.getHeaderTitle());
         holder.seeMoreResultsTextView.setText("see all " + categoryViewModel.getHeaderTitle());
         holder.categoryRecyclerView.setHasFixedSize(true);
@@ -122,7 +128,8 @@ public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryView
 
     @Override
     public void onItemClick(int index, ImageView imageView) {
-        BrandCategoryViewModel categoryViewModel = brandViewModels.get(index);
+        Log.e("ParentPosition===",parentPosition+"==Index==="+index);
+        BrandCategoryViewModel categoryViewModel = brandViewModels.get(parentPosition);
         String transitionName = ViewCompat.getTransitionName(imageView);
 
         ((HomeActivity) context).getSupportFragmentManager()

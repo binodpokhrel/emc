@@ -30,7 +30,6 @@ public class RecyclerSectionItemDecoration extends RecyclerView.ItemDecoration {
         headerOffset = headerHeight;
         this.sticky = sticky;
         this.sectionCallback = sectionCallback;
-//        this.space = space;
     }
 
     @Override
@@ -41,13 +40,6 @@ public class RecyclerSectionItemDecoration extends RecyclerView.ItemDecoration {
         if (sectionCallback.isSection(pos)) {
             outRect.top = headerOffset;
         }
-
-       /*if(parent.getChildLayoutPosition(view) != 0){
-           outRect.left = space;
-           outRect.right = space;
-           outRect.bottom = space;
-       }*/
-
     }
 
     @Override

@@ -104,8 +104,7 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
         brandAdapter = new BrandCategoryAdapter(getActivity(), viewModel);
         brandRecyclerView.setAdapter(brandAdapter);
 
-        RecyclerSectionItemDecoration sectionItemDecoration = new RecyclerSectionItemDecoration(getResources().getDimensionPixelSize(R.dimen.headerHeight),
-                true, getSectionCallback(viewModel));
+        RecyclerSectionItemDecoration sectionItemDecoration = new RecyclerSectionItemDecoration(getResources().getDimensionPixelSize(R.dimen.headerHeight), true, getSectionCallback(viewModel));
         brandRecyclerView.addItemDecoration(sectionItemDecoration);
     }
 
@@ -113,16 +112,14 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
         return new RecyclerSectionItemDecoration.SectionCallback() {
             @Override
             public boolean isSection(int position) {
-                return position == 0
-                        || !Objects.equals(viewModels.get(position).getHeaderTitle(), viewModels.get(position - 1)
-                        .getHeaderTitle());
+                return position == 0 || !Objects.equals(viewModels.get(position).getHeaderTitle(), viewModels.get(position - 1).getHeaderTitle());
             }
 
             @Override
             public String getSectionHeader(int position) {
-                return viewModels.get(position)
-                        .getHeaderTitle();
+                return viewModels.get(position).getHeaderTitle();
             }
+
         };
 
     }
