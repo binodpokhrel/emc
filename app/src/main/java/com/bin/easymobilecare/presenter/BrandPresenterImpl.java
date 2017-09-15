@@ -9,6 +9,7 @@ import com.bin.easymobilecare.ui.vInterface.IBrand;
 import com.bin.easymobilecare.viewModel.BrandCategoryViewModel;
 import com.bin.easymobilecare.viewModel.BrandSubCatViewModel;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,7 +115,8 @@ public class BrandPresenterImpl extends MvpBasePresenter<IBrand> implements Bran
                     categoryViewModel.setSubCatImage(brandSubCatViewModels);
                     viewModels.add(categoryViewModel);
                 }
-                getView().onListChange(viewModels);
+                if (getView() != null)
+                    getView().onListChange(viewModels);
             }
 
             @Override

@@ -9,4 +9,7 @@
     <string name="app_phone">phone</string>
     <string name="app_email">email</string>
     <string name="app_password">password</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

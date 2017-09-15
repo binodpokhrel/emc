@@ -37,4 +37,24 @@ public class BrandActivity extends BaseActivity<IBrandMainView,BrandMainPresente
         Fragment brandFragment = BrandFragment.newInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.brand_container, brandFragment).commit();
     }
+
+    @Override
+    public void navigateToServiceFragment() {
+
+    }
+
+    @Override
+    public void navigateToRepairFragment() {
+
+    }
+
+    @Override
+    public void navigateToNewsFragment() {
+
+    }
+
+    @Override
+    public void navigateToProfileFragment() {
+
+    }
 }

@@ -13,16 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bin.easymobilecare.ui.vInterface.IBrandMainView;
-import com.bin.easymobilecare.util.listener.OnItemClickListner;
-import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
-import com.hannesdorfmann.mosby3.mvp.MvpPresenter;
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.ui.coreUi.BaseFragment;
+import com.bin.easymobilecare.ui.vInterface.IBrandMainView;
 import com.bin.easymobilecare.ui.vInterface.IView;
 import com.bin.easymobilecare.ui.viewAdapter.AllBrandItemAdapter;
 import com.bin.easymobilecare.util.DetailsTransition;
+import com.bin.easymobilecare.util.listener.OnItemClickListener;
 import com.bin.easymobilecare.viewModel.BrandCategoryViewModel;
+import com.bin.easymobilecare.viewModel.BrandSubCatViewModel;
+import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
+import com.hannesdorfmann.mosby3.mvp.MvpPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,9 +34,7 @@ import static com.bin.easymobilecare.util.constants.TrainsitionConstant.DATA_TRA
  * Created by binodPokhrel on 7/27/17.
  */
 
-public class AllBrandItemListFragment extends BaseFragment<IBrandMainView,IView, MvpPresenter<IView>> implements IView ,OnItemClickListner{
-
-    private int clickedIndex;
+public class AllBrandItemListFragment extends BaseFragment<IBrandMainView, IView, MvpPresenter<IView>> implements IView, OnItemClickListener {
 
     @BindView(R.id.listAllbrandItemsRecyclerView)
     RecyclerView listAllBrandItem;
@@ -65,7 +64,7 @@ public class AllBrandItemListFragment extends BaseFragment<IBrandMainView,IView,
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         BrandCategoryViewModel brandCategoryViewModel = (BrandCategoryViewModel) getArguments().getSerializable(DATA_TRANSITION_NAME);
-        AllBrandItemAdapter adapter = new AllBrandItemAdapter(getActivity(), brandCategoryViewModel.getSubCatImage(),this);
+        AllBrandItemAdapter adapter = new AllBrandItemAdapter(getActivity(), brandCategoryViewModel.getSubCatImage(), this);
         listAllBrandItem.setLayoutManager(new LinearLayoutManager(getActivity()));
         listAllBrandItem.setAdapter(adapter);
     }
@@ -75,10 +74,9 @@ public class AllBrandItemListFragment extends BaseFragment<IBrandMainView,IView,
         super.context = getActivity();
     }
 
-    public void showTargetFragment(ImageView forImageView) {
+    public void showTargetFragment(ImageView forImageView, BrandSubCatViewModel subCatViewModel) {
         String transitionName = ViewCompat.getTransitionName(forImageView);
-        BrandDetailFragment fragment = BrandDetailFragment.create(transitionName,((BrandCategoryViewModel) getArguments().
-                getSerializable(DATA_TRANSITION_NAME)).getSubCatImage().get(clickedIndex));
+        BrandDetailFragment fragment = BrandDetailFragment.create(transitionName, subCatViewModel);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             showTargetFragmentLollipop(fragment, forImageView);
@@ -108,9 +106,8 @@ public class AllBrandItemListFragment extends BaseFragment<IBrandMainView,IView,
     }
 
     @Override
-    public void onItemClick(int index, ImageView imageView) {
-        this.clickedIndex = index;
-        showTargetFragment(imageView);
+    public void onItemClick(ImageView imageView, BrandSubCatViewModel subCatViewModel) {
+        showTargetFragment(imageView, subCatViewModel);
     }
 }
 

@@ -8,19 +8,24 @@ import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.presenter.BrandMainPresenterImpl;
 import com.bin.easymobilecare.presenter.pInterface.BrandMainPresenter;
 import com.bin.easymobilecare.ui.coreUi.BaseActivity;
 import com.bin.easymobilecare.ui.fragment.Brand.BrandFragment;
+import com.bin.easymobilecare.ui.fragment.NewsFragment;
+import com.bin.easymobilecare.ui.fragment.ProfileFragment;
+import com.bin.easymobilecare.ui.fragment.RepairFragment;
+import com.bin.easymobilecare.ui.fragment.ServiceFragment;
 import com.bin.easymobilecare.ui.vInterface.IBrandMainView;
-import com.bin.easymobilecare.util.App;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter> implements IBrandMainView {
+public class HomeActivity extends BaseActivity<IBrandMainView, BrandMainPresenter> implements IBrandMainView {
 
     @BindView(R.id.homeLinearLayout)
     LinearLayout homeLinearLayout;
@@ -78,10 +83,9 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
         presenter.navigationToBrandFragScreen();
 
         green = ContextCompat.getColor(this, R.color.colorPrimaryDark);
-        gray = ContextCompat.getColor(this, R.color.lightGray);
+        gray = ContextCompat.getColor(this, R.color.light_btn_gray);
         ButterKnife.bind(this);
 
-//        App.replaceFragment(getSupportFragmentManager(), R.id.dataFragmentFrameLayout, new BrandFragment());
         homeImgaeView.setColorFilter(green, PorterDuff.Mode.SRC_ATOP);
         homeTextView.setTextColor(green);
 
@@ -99,7 +103,7 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
     }
 
 
-    @OnClick({R.id.homeLinearLayout, R.id.serviceLinearLayout, R.id.repairLinearLayout,R.id.newsLinearLayout,R.id.profileLinearLayout})
+    @OnClick({R.id.homeLinearLayout, R.id.serviceLinearLayout, R.id.repairLinearLayout, R.id.newsLinearLayout, R.id.profileLinearLayout})
     public void onLayoutClick(LinearLayout linearLayout) {
         switch (linearLayout.getId()) {
             case R.id.homeLinearLayout:
@@ -118,7 +122,7 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
                 profileImageView.setColorFilter(gray, PorterDuff.Mode.SRC_ATOP);
                 profileTextView.setTextColor(gray);
 
-                App.replaceFragment(getSupportFragmentManager(), R.id.dataFragmentFrameLayout, new BrandFragment());
+                navigateToBrandFragment();
 
                 break;
             case R.id.serviceLinearLayout:
@@ -136,6 +140,8 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
 
                 profileImageView.setColorFilter(gray, PorterDuff.Mode.SRC_ATOP);
                 profileTextView.setTextColor(gray);
+
+                navigateToServiceFragment();
                 break;
 
             case R.id.repairLinearLayout:
@@ -155,6 +161,8 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
                 profileImageView.setColorFilter(gray, PorterDuff.Mode.SRC_ATOP);
                 profileTextView.setTextColor(gray);
 
+                navigateToRepairFragment();
+
                 break;
 
             case R.id.newsLinearLayout:
@@ -172,6 +180,8 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
 
                 profileImageView.setColorFilter(gray, PorterDuff.Mode.SRC_ATOP);
                 profileTextView.setTextColor(gray);
+
+                navigateToNewsFragment();
                 break;
 
             case R.id.profileLinearLayout:
@@ -189,6 +199,8 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
 
                 profileImageView.setColorFilter(green, PorterDuff.Mode.SRC_ATOP);
                 profileTextView.setTextColor(green);
+
+                navigateToProfileFragment();
                 break;
         }
     }
@@ -197,5 +209,29 @@ public class HomeActivity extends BaseActivity<IBrandMainView,BrandMainPresenter
     public void navigateToBrandFragment() {
         Fragment brandFragment = BrandFragment.newInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.dataFragmentFrameLayout, brandFragment).commit();
+    }
+
+    @Override
+    public void navigateToServiceFragment() {
+        Fragment fragment = ServiceFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dataFragmentFrameLayout, fragment).commit();
+    }
+
+    @Override
+    public void navigateToRepairFragment() {
+        Fragment fragment = RepairFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dataFragmentFrameLayout, fragment).commit();
+    }
+
+    @Override
+    public void navigateToNewsFragment() {
+        Fragment fragment = NewsFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dataFragmentFrameLayout, fragment).commit();
+    }
+
+    @Override
+    public void navigateToProfileFragment() {
+        Fragment fragment = ProfileFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dataFragmentFrameLayout, fragment).commit();
     }
 }

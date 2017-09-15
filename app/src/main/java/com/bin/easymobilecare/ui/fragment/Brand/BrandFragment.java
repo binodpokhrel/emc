@@ -2,7 +2,9 @@ package com.bin.easymobilecare.ui.fragment.Brand;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,12 +18,15 @@ import android.widget.ViewFlipper;
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.presenter.BrandPresenterImpl;
 import com.bin.easymobilecare.presenter.pInterface.BrandPresenter;
+import com.bin.easymobilecare.ui.activity.HomeActivity;
 import com.bin.easymobilecare.ui.coreUi.BaseFragment;
 import com.bin.easymobilecare.ui.vInterface.IBrand;
 import com.bin.easymobilecare.ui.vInterface.IBrandMainView;
 import com.bin.easymobilecare.ui.viewAdapter.BrandCategoryAdapter;
 import com.bin.easymobilecare.util.RecyclerSectionItemDecoration;
+import com.bin.easymobilecare.util.listener.OnItemClickListener;
 import com.bin.easymobilecare.viewModel.BrandCategoryViewModel;
+import com.bin.easymobilecare.viewModel.BrandSubCatViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +39,7 @@ import butterknife.ButterKnife;
  * Created by binodPokhrel on 7/14/17.
  */
 
-public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPresenter> implements IBrand{
+public class BrandFragment extends BaseFragment<IBrandMainView, IBrand, BrandPresenter> implements IBrand, OnItemClickListener {
 
     @BindView(R.id.brandRecyclerView)
     RecyclerView brandRecyclerView;
@@ -42,12 +47,12 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
     @BindView(R.id.bannerViewFlipper)
     ViewFlipper bannerViewFlipper;
 
-    int[] bannerImage = {R.drawable.banner1,R.drawable.banner2,R.drawable.banner3};
+    int[] bannerImage = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
 
     RecyclerView.Adapter brandAdapter;
     List<BrandCategoryViewModel> viewModel = new ArrayList<>();
 
-    public static BrandFragment newInstance(){
+    public static BrandFragment newInstance() {
         BrandFragment brandFragment = new BrandFragment();
         Bundle args = new Bundle();
         brandFragment.setArguments(args);
@@ -62,8 +67,8 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_brand,container,false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_brand, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -71,9 +76,9 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter.getBrand();
-        for(int i = 0 ; i < bannerImage.length ; i++){
+        for (int aBannerImage : bannerImage) {
             ImageView imageView = new ImageView(context);
-            imageView.setImageResource(bannerImage[i]);
+            imageView.setImageResource(aBannerImage);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             bannerViewFlipper.addView(imageView);
             Animation in = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
@@ -90,6 +95,7 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
         super.context = getActivity();
     }
 
+    @NonNull
     @Override
     public BrandPresenter createPresenter() {
         return new BrandPresenterImpl();
@@ -99,9 +105,9 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
     public void onListChange(final List<BrandCategoryViewModel> viewModel) {
         this.viewModel = viewModel;
         brandRecyclerView.setHasFixedSize(true);
-        brandRecyclerView.setLayoutManager( new LinearLayoutManager(context));
+        brandRecyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        brandAdapter = new BrandCategoryAdapter(getActivity(), viewModel);
+        brandAdapter = new BrandCategoryAdapter(getActivity(), viewModel, this);
         brandRecyclerView.setAdapter(brandAdapter);
 
         RecyclerSectionItemDecoration sectionItemDecoration = new RecyclerSectionItemDecoration(getResources().getDimensionPixelSize(R.dimen.headerHeight), true, getSectionCallback(viewModel));
@@ -127,11 +133,22 @@ public class BrandFragment extends BaseFragment<IBrandMainView,IBrand,BrandPrese
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof IBrandMainView){
-            listner = (IBrandMainView)context;
-        }else {
-            throw new RuntimeException(context.toString()+"must implement IBrandMainView");
+        if (context instanceof IBrandMainView) {
+            listner = (IBrandMainView) context;
+        } else {
+            throw new RuntimeException(context.toString() + "must implement IBrandMainView");
         }
     }
 
+    @Override
+    public void onItemClick(ImageView imageView, BrandSubCatViewModel subCatViewModel) {
+
+        String transitionName = ViewCompat.getTransitionName(imageView);
+
+        ((HomeActivity) context).getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.dataFragmentFrameLayout, BrandDetailFragment.create(transitionName, subCatViewModel))
+                .addToBackStack(null)
+                .commit();
+    }
 }

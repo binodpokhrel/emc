@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.ui.viewAdapter.viewHolder.BrandViewHolder;
 import com.bin.easymobilecare.util.constants.ApiConstants;
-import com.bin.easymobilecare.util.listener.OnItemClickListner;
+import com.bin.easymobilecare.util.listener.OnItemClickListener;
 import com.bin.easymobilecare.viewModel.BrandSubCatViewModel;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -25,12 +25,12 @@ import java.util.List;
  * Created by binodPokhrel on 7/6/17.
  */
 
-public class BrandAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+class BrandAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private final OnItemClickListener clickListener;
     private Activity context;
     private List<BrandSubCatViewModel> brandViewModels;
-    public final OnItemClickListner clickListener;
 
-    public BrandAdapter(Activity context, List<BrandSubCatViewModel> brandCategoryViewModels,OnItemClickListner clickListener) {
+    BrandAdapter(Activity context, List<BrandSubCatViewModel> brandCategoryViewModels, OnItemClickListener clickListener) {
         this.context = context;
         this.brandViewModels = brandCategoryViewModels;
         this.clickListener = clickListener;
@@ -44,7 +44,7 @@ public class BrandAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final BrandViewHolder viewHolder = (BrandViewHolder) holder;
         BrandSubCatViewModel brandSubCatViewModel = brandViewModels.get(position);
         String imageUri = brandSubCatViewModel.getBrandImage();
@@ -55,9 +55,8 @@ public class BrandAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         viewHolder.ivItemGridImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickListener.onItemClick(position,viewHolder.ivItemGridImage);
-
-                Log.e("BrandAdapter===",position+"");
+                clickListener.onItemClick(viewHolder.ivItemGridImage, brandViewModels.get(viewHolder.getAdapterPosition()));
+                Log.e("BrandAdapter===", viewHolder.getAdapterPosition() + "");
             }
         });
     }

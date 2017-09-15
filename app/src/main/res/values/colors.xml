@@ -7,4 +7,5 @@
     <color name="backColor">#4292a6</color>
     <color name="lightGray">#eaeaea</color>
     <color name="lightBlack">#404040</color>
+    <color name="light_btn_gray">#95A5A6</color>
 </resources>

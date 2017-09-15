@@ -1,21 +1,18 @@
 package com.bin.easymobilecare.ui.viewAdapter;
 
 import android.app.Activity;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.ui.activity.HomeActivity;
 import com.bin.easymobilecare.ui.fragment.Brand.AllBrandItemListFragment;
-import com.bin.easymobilecare.ui.fragment.Brand.BrandDetailFragment;
 import com.bin.easymobilecare.ui.viewAdapter.viewHolder.BrandCategoryViewHolder;
-import com.bin.easymobilecare.util.listener.OnItemClickListner;
+import com.bin.easymobilecare.util.listener.OnItemClickListener;
 import com.bin.easymobilecare.viewModel.BrandCategoryViewModel;
 
 import java.util.List;
@@ -24,14 +21,15 @@ import java.util.List;
  * Created by binodPokhrel on 7/6/17.
  */
 
-public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryViewHolder> implements OnItemClickListner {
+public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryViewHolder> {
+    private OnItemClickListener listener;
     private Activity context;
     private List<BrandCategoryViewModel> brandViewModels;
-    int parentPosition;
 
-    public BrandCategoryAdapter(Activity context, List<BrandCategoryViewModel> brandCategoryViewModels) {
+    public BrandCategoryAdapter(Activity context, List<BrandCategoryViewModel> brandCategoryViewModels, OnItemClickListener listener) {
         this.context = context;
         this.brandViewModels = brandCategoryViewModels;
+        this.listener = listener;
     }
 
     @Override
@@ -44,11 +42,10 @@ public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryView
     public void onBindViewHolder(BrandCategoryViewHolder holder, int position) {
         final BrandCategoryViewModel categoryViewModel = brandViewModels.get(position);
 
-        parentPosition = position;
-        Log.e("OnBindParentPosition==",position+"");
+        Log.e("OnBindParentPosition==", position + "");
 
         holder.headerTextView.setText(categoryViewModel.getHeaderTitle());
-        holder.seeMoreResultsTextView.setText("see all " + categoryViewModel.getHeaderTitle());
+        holder.seeMoreResultsTextView.setText(String.format("see all %s", categoryViewModel.getHeaderTitle()));
         holder.categoryRecyclerView.setHasFixedSize(true);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 9);
@@ -74,7 +71,7 @@ public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryView
             }
         });
 
-        BrandAdapter brandAdapter = new BrandAdapter(context, categoryViewModel.getSubCatImage(),this);
+        BrandAdapter brandAdapter = new BrandAdapter(context, categoryViewModel.getSubCatImage(), listener);
         holder.categoryRecyclerView.setAdapter(brandAdapter);
 
         holder.categoryRecyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
@@ -124,19 +121,6 @@ public class BrandCategoryAdapter extends RecyclerView.Adapter<BrandCategoryView
     @Override
     public int getItemCount() {
         return brandViewModels.size();
-    }
-
-    @Override
-    public void onItemClick(int index, ImageView imageView) {
-        Log.e("ParentPosition===",parentPosition+"==Index==="+index);
-        BrandCategoryViewModel categoryViewModel = brandViewModels.get(parentPosition);
-        String transitionName = ViewCompat.getTransitionName(imageView);
-
-        ((HomeActivity) context).getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.dataFragmentFrameLayout, BrandDetailFragment.create(transitionName,categoryViewModel.getSubCatImage().get(index)))
-                .addToBackStack(null)
-                .commit();
     }
 
 }

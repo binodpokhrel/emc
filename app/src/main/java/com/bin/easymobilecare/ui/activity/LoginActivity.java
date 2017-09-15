@@ -19,8 +19,6 @@ public class LoginActivity extends BaseActivity<LoginMainView, LoginMainPresente
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //checkLoginSession is the method of LoginMainPresenter which is exposed to its mainview(LoginActivity)
         presenter.checkLoginSession();
     }
 

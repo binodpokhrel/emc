@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.bin.easymobilecare.R;
 import com.bin.easymobilecare.ui.viewAdapter.viewHolder.AllBrandItemViewHolder;
 import com.bin.easymobilecare.util.constants.ApiConstants;
-import com.bin.easymobilecare.util.listener.OnItemClickListner;
+import com.bin.easymobilecare.util.listener.OnItemClickListener;
 import com.bin.easymobilecare.viewModel.BrandSubCatViewModel;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -24,12 +24,12 @@ import java.util.List;
  * Created by binodPokhrel on 7/27/17.
  */
 
-public class AllBrandItemAdapter extends RecyclerView.Adapter<AllBrandItemViewHolder>{
-    Activity context;
+public class AllBrandItemAdapter extends RecyclerView.Adapter<AllBrandItemViewHolder> {
+    private final OnItemClickListener clickListener;
+    private Activity context;
     private List<BrandSubCatViewModel> brandViewModels;
-    public final OnItemClickListner clickListener;
 
-    public AllBrandItemAdapter(Activity context, List<BrandSubCatViewModel> brandViewModels,OnItemClickListner clickListener) {
+    public AllBrandItemAdapter(Activity context, List<BrandSubCatViewModel> brandViewModels, OnItemClickListener clickListener) {
         this.context = context;
         this.brandViewModels = brandViewModels;
         this.clickListener = clickListener;
@@ -38,21 +38,28 @@ public class AllBrandItemAdapter extends RecyclerView.Adapter<AllBrandItemViewHo
 
     @Override
     public AllBrandItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.adapter_allbrand_items,parent,false);
-        return new AllBrandItemViewHolder(view,this);
+        View view = LayoutInflater.from(context).inflate(R.layout.adapter_allbrand_items, parent, false);
+        return new AllBrandItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(AllBrandItemViewHolder holder, int position) {
-        AllBrandItemViewHolder viewHolder = holder;
+        final AllBrandItemViewHolder viewHolder = holder;
         BrandSubCatViewModel brandSubCatViewModel = brandViewModels.get(position);
         String imageUri = brandSubCatViewModel.getBrandImage();
-        viewHolder.deviceAmountTextView.setText("Rs. "+brandSubCatViewModel.getItemCostAmount());
+        viewHolder.deviceAmountTextView.setText("Rs. " + brandSubCatViewModel.getItemCostAmount());
         viewHolder.deviceNameTextView.setText(brandSubCatViewModel.getItemName());
         viewHolder.deviceStatusTextView.setText(brandSubCatViewModel.getGeneralStatus());
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(ApiConstants.IMAGE_URL + imageUri, viewHolder.bannerImageView);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onItemClick(viewHolder.bannerImageView, brandViewModels.get(viewHolder.getAdapterPosition()));
+            }
+        });
     }
 
     private void configImageLoader() {

@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
  * Created by binodPokhrel on 7/27/17.
  */
 
-public class AllBrandItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class AllBrandItemViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.bannerImageView)
     public ImageView bannerImageView;
@@ -29,19 +29,8 @@ public class AllBrandItemViewHolder extends RecyclerView.ViewHolder implements V
     @BindView(R.id.statusTextView)
     public TextView deviceStatusTextView;
 
-    private AllBrandItemAdapter adapter;
-
-    public AllBrandItemViewHolder(View itemView,AllBrandItemAdapter adapter) {
+    public AllBrandItemViewHolder(View itemView) {
         super(itemView);
-        this.adapter = adapter;
         ButterKnife.bind(this, itemView);
-        itemView.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (adapter != null && adapter.clickListener != null) {
-            adapter.clickListener.onItemClick(getAdapterPosition(), bannerImageView);
-        }
     }
 }

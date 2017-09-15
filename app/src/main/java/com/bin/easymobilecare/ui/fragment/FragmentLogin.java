@@ -3,6 +3,7 @@ package com.bin.easymobilecare.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class FragmentLogin extends BaseFragment<LoginMainView,LoginView, LoginPr
         return fragment;
     }
 
+    @NonNull
     @Override
     public LoginPresenter createPresenter() {
         return new LoginPresenterImpl();
@@ -70,7 +72,6 @@ public class FragmentLogin extends BaseFragment<LoginMainView,LoginView, LoginPr
 
     @OnClick (R.id.loginBtn)
     public void loginBtn(){
-
         presenter.doLogin(insertUserName.getText().toString(),insertPassword.getText().toString());
 
 //        LoginRequest loginRequest = new LoginRequest();
