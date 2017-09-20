@@ -13,26 +13,28 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/ivItemGridImage"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="center"
-            android:layout_margin="1dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name" />
 
-        <TextView
-            android:id="@+id/catNameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom"
-            android:text="see more..."
-            style="@style/Base.TextAppearance.AppCompat.Small"
-            android:textAllCaps="true"
-            android:textColor="@color/cardview_light_background"
-            android:gravity="center_vertical|center_horizontal"
-            android:background="@color/transparent"/>
+            <ImageView
+                android:id="@+id/ivItemGridImage"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/catNameTextView"
+                style="@style/Base.TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:background="@color/transparent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="see more..."
+                android:textAllCaps="true"
+                android:textColor="@color/cardview_light_background" />
         </FrameLayout>
     </android.support.v7.widget.CardView>
 

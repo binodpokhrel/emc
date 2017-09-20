@@ -162,13 +162,14 @@ public class BrandDetailFragment extends BaseFragment<IBrandMainView,IView, MvpP
     private void setTheSeralizeData() {
         BrandSubCatViewModel brandSubCatViewModel = (BrandSubCatViewModel) getArguments().getSerializable(DETAIL_ITEMS_TRANSITION_VIEW_NAME);
 
+        assert brandSubCatViewModel != null;
         String brandImage = brandSubCatViewModel.getBrandImage();
 
-        detailBrandItemPriceTextView.setText(" Rs. " + brandSubCatViewModel.getItemCostAmount());
+        detailBrandItemPriceTextView.setText(String.format(" Rs. %s", brandSubCatViewModel.getItemCostAmount()));
         detailBrandItemNameTextView.setText(brandSubCatViewModel.getCatName() + " " + brandSubCatViewModel.getGeneralStatus());
-        detailBrandRamTextView.setText("Ram\n" + brandSubCatViewModel.getHardwareRAM());
-        detailBrandCameraTextView.setText("Rear Camera\n" + brandSubCatViewModel.getCameraMegaPixel());
-        detailBrandTalkTimeTextView.setText("Talk Time\n" + brandSubCatViewModel.getBatteryTalktime());
+        detailBrandRamTextView.setText(String.format("Ram\n%s", brandSubCatViewModel.getHardwareRAM()));
+        detailBrandCameraTextView.setText(String.format("Rear Camera\n%s", brandSubCatViewModel.getCameraMegaPixel()));
+        detailBrandTalkTimeTextView.setText(String.format("Talk Time\n%s", brandSubCatViewModel.getBatteryTalktime()));
 
         itemDetailInfo.setText("Front Camera :" + brandSubCatViewModel.getCameraSecondary() + "\nStandby Time  :" + brandSubCatViewModel.getBatteryStandby()
                 + "\nFM :" + brandSubCatViewModel.getMultimediaRadio() + "\nCapacity :" + brandSubCatViewModel.getBatteryCapacity());
